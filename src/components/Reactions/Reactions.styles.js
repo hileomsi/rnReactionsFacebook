@@ -4,6 +4,7 @@ import LottieView from "lottie-react-native";
 
 export const ReactionsContainer = styled.View`
   position: relative;
+  z-index: 99;
 `;
 export const ReactionsContent = styled(Animated.View)`
   position: absolute;

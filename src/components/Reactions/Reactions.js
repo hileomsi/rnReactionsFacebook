@@ -24,7 +24,7 @@ export default function Reactions(props) {
   useEffect(() => {
     Animated.timing(opacity, {
       toValue: visible ? 1 : 0,
-      duration: 200,
+      duration: 150,
     }).start();
   }, [visible]);
 

@@ -15,7 +15,7 @@ export default function Feed(props) {
       <FlatList
         data={posts}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <Post />}
+        renderItem={({ item }) => <Post {...item} />}
         refreshControl={
           <RefreshControl
             refreshing={false}

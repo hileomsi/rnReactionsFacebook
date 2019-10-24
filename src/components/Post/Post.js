@@ -17,7 +17,17 @@ import {
   IconAction,
 } from './Post.styles';
 
-export default function Post() {
+export default function Post(props) {
+  const {
+    user: {
+      name,
+      avatar,
+    },
+    createdAt,
+    description,
+    photo,
+    comments,
+  } = props;
   const [reactionsOpened, setReactionsOpened] = useState(false);
   const toggleReactionOpened = useCallback(() => {
     setReactionsOpened(!reactionsOpened);
@@ -26,21 +36,21 @@ export default function Post() {
   return (
     <PostContainer>
       <HeaderContainer>
-        <Avatar source={{ url: 'https://s3.amazonaws.com/uifaces/faces/twitter/koridhandy/128.jpg' }} />
+        <Avatar source={{ url: avatar }} />
         <HeaderContent>
-          <Name>Hiléo Andersson</Name>
-          <DatePost>Saturday at 17:00</DatePost>
+          <Name>{name}</Name>
+          <DatePost>{createdAt}</DatePost>
         </HeaderContent>
       </HeaderContainer>
       <Description>
-        Hic quia dolor. Natus dolorem dicta rem ut architecto est sunt. In recusandae rem qui et quis. Provident consequuntur excepturi similique quo et. Et qui beatae ducimus ipsam dolore ut nihil deleniti.
+        {description}
       </Description>
       <Photo
-        source={{ url: 'https://images.unsplash.com/photo-1571825224369-48338bfedb5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' }}
+        source={{ url: photo }}
       />
       <InfoContainer>
         <Reactions visible={reactionsOpened} />
-        <Comment>70 Comments</Comment>
+        <Comment>{comments}</Comment>
       </InfoContainer>
       <ActionsContainer>
         <ActionContainer onPress={toggleReactionOpened}>
